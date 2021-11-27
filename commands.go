@@ -15,7 +15,7 @@ const (
 	ApplicationManagerForegroundAppCommand Command = "ssap://com.webos.applicationManager/getForegroundAppInfo"
 
 	// AudioGetVolumeCommand returns information about the TV's configured audio output volume.
-	AudioGetVolumeCommand Command = "ssap://audio/getVolume"
+	AudioGetVolumeCommand Command = "ssap://audio/getStatus"
 
 	// AudioSetVolumeCommand sets the TV's configured audio output volume.
 	AudioSetVolumeCommand Command = "ssap://audio/setVolume"
