@@ -151,6 +151,13 @@ func (tv *TV) Close() error {
 	return tv.ws.Close()
 }
 
+func (tv *TV) IsClosed() bool {
+	tv.resMutex.Lock()
+	res := tv.res == nil
+	defer tv.resMutex.Unlock()
+	return res
+}
+
 // request makes a request to TV. It ensures a channel is available for responses
 // using the given Message.ID and makes the request. Responses from the TV are added
 // to the channel in the MessageHandler method, and read in this method. Responses

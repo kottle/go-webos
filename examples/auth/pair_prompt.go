@@ -9,7 +9,7 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	webos "github.com/kaperys/go-webos"
+	webos "github.com/kottle/go-webos"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 		}).Dial,
 	}
 
-	tv, err := webos.NewTV(&dialer, "192.168.1.3")
+	tv, err := webos.NewTV(&dialer, "192.168.1.13")
 	if err != nil {
 		log.Fatalf("could not dial: %v", err)
 	}
