@@ -112,13 +112,13 @@ func (tv *TV) CurrentApp() (*App, error) {
 }
 
 // GetVolume returns information about the audio output volume.
-func (tv *TV) GetVolume() (*Volume, error) {
+func (tv *TV) GetVolume() (*VolumeStatus, error) {
 	msg, err := tv.Command(AudioGetVolumeCommand, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	v := &Volume{}
+	v := &VolumeStatus{}
 	err = mapstructure.Decode(msg.Payload, v)
 	return v, err
 }
@@ -136,13 +136,12 @@ func (tv *TV) VolumeDown() error {
 }
 
 // VolumeStatus returns information about the audio output volume.
-func (tv *TV) VolumeStatus() (*Volume, error) {
+func (tv *TV) VolumeStatus() (*VolumeStatus, error) {
 	msg, err := tv.Command(AudioVolumeStatusCommand, nil)
 	if err != nil {
 		return nil, err
 	}
-
-	v := &Volume{}
+	v := &VolumeStatus{}
 	err = mapstructure.Decode(msg.Payload, v)
 	return v, err
 }

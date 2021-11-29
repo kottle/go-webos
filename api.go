@@ -117,5 +117,13 @@ type Volume struct {
 	ReturnValue bool
 	Scenario    string
 	Volume      int32
-	Muted       bool
+	MuteStatus  bool
+	SoundOutput string
+	Mode        string
+}
+
+type VolumeStatus struct {
+	ReturnValue  bool
+	CallerId     string
+	VolumeStatus Volume
 }
