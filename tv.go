@@ -27,7 +27,6 @@ type TV struct {
 
 	res      map[string]chan<- Message
 	resMutex sync.Mutex
-	input    *Input
 }
 
 // NewTV dials the socket and returns a pointer to a new TV.
@@ -144,10 +143,6 @@ func (tv *TV) AuthorisePrompt() (string, error) {
 
 // Close closes the websocket connection to the TV.
 func (tv *TV) Close() error {
-	if tv.input != nil {
-		tv.input.Close()
-		tv.input = nil
-	}
 	return tv.ws.Close()
 }
 

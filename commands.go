@@ -7,6 +7,7 @@ import (
 // Command is the type used by tv.Command to interact with the TV.
 type Command string
 
+//https://github.com/supersaiyanmode/PyWebOSTV
 const (
 	// APIServiceListCommand lists the API services available on the TV.
 	APIServiceListCommand Command = "ssap://api/getServiceList"
@@ -274,8 +275,7 @@ func (tv *TV) KeyUp() error {
 	}
 	defer input.Close()
 
-	input.SendButton("UP")
-	return nil
+	return input.SendButton("UP")
 }
 
 func (tv *TV) KeyDown() error {
@@ -285,8 +285,7 @@ func (tv *TV) KeyDown() error {
 	}
 	defer input.Close()
 
-	input.SendButton("DOWN")
-	return nil
+	return input.SendButton("DOWN")
 }
 
 func (tv *TV) KeyLeft() error {
@@ -296,8 +295,7 @@ func (tv *TV) KeyLeft() error {
 	}
 	defer input.Close()
 
-	input.SendButton("LEFT")
-	return nil
+	return input.SendButton("LEFT")
 }
 
 func (tv *TV) KeyRight() error {
@@ -307,12 +305,7 @@ func (tv *TV) KeyRight() error {
 	}
 	defer input.Close()
 
-	input.SendButton("RIGHT")
-	return nil
-}
-
-func (tv *TV) KeyOk() (Message, error) {
-	return tv.Command(KeyEnterCommand, nil)
+	return input.SendButton("RIGHT")
 }
 
 func (tv *TV) KeyBack() error {
@@ -322,8 +315,8 @@ func (tv *TV) KeyBack() error {
 	}
 	defer input.Close()
 
-	input.SendButton("BACK")
-	return nil
+	return input.SendButton("BACK")
+
 }
 
 func (tv *TV) KeyHome() error {
@@ -331,6 +324,172 @@ func (tv *TV) KeyHome() error {
 	if err != nil {
 		return err
 	}
-	input.SendButton("HOME")
-	return nil
+	return input.SendButton("HOME")
+}
+
+func (tv *TV) KeyMenu() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("MENU")
+}
+
+func (tv *TV) KeyOK() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("ENTER")
+}
+
+func (tv *TV) KeyDash() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("DASH")
+}
+
+func (tv *TV) KeyInfo() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("INFO")
+}
+
+func (tv *TV) KeyNUM_1() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("1")
+}
+
+func (tv *TV) KeyNUM_2() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("2")
+}
+
+func (tv *TV) KeyNUM_3() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("3")
+}
+
+func (tv *TV) KeyNUM_4() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("4")
+}
+
+func (tv *TV) KeyNUM_5() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("5")
+}
+func (tv *TV) KeyNUM_6() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("6")
+}
+
+func (tv *TV) KeyNUM_7() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("7")
+}
+
+func (tv *TV) KeyNUM_8() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("8")
+}
+
+func (tv *TV) KeyNUM_9() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("9")
+}
+
+func (tv *TV) KeyNUM_0() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("0")
+}
+
+func (tv *TV) KeyASTERISK() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("ASTERISK")
+}
+
+func (tv *TV) KeyCC() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("CC")
+}
+
+func (tv *TV) KeyExit() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("EXIT")
+}
+
+func (tv *TV) KeyRed() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("RED")
+}
+
+func (tv *TV) KeyGreen() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("GREEN")
+}
+
+func (tv *TV) KeyYellow() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("YELLOW")
+}
+
+func (tv *TV) KeyBlue() error {
+	input, err := tv.createInput()
+	if err != nil {
+		return err
+	}
+	return input.SendButton("BLUE")
 }
