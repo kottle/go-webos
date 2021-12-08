@@ -268,50 +268,46 @@ func (tv *TV) CurrentProgram() (Message, error) {
 }
 
 func (tv *TV) KeyUp() error {
-	if tv.input == nil {
-		var err error
-		tv.input, err = tv.createInput()
-		if err != nil {
-			return err
-		}
+	input, err := tv.createInput()
+	if err != nil {
+		return err
 	}
-	tv.input.SendButton("UP")
+	defer input.Close()
+
+	input.SendButton("UP")
 	return nil
 }
 
 func (tv *TV) KeyDown() error {
-	if tv.input == nil {
-		var err error
-		tv.input, err = tv.createInput()
-		if err != nil {
-			return err
-		}
+	input, err := tv.createInput()
+	if err != nil {
+		return err
 	}
-	tv.input.SendButton("DOWN")
+	defer input.Close()
+
+	input.SendButton("DOWN")
 	return nil
 }
 
 func (tv *TV) KeyLeft() error {
-	if tv.input == nil {
-		var err error
-		tv.input, err = tv.createInput()
-		if err != nil {
-			return err
-		}
+	input, err := tv.createInput()
+	if err != nil {
+		return err
 	}
-	tv.input.SendButton("LEFT")
+	defer input.Close()
+
+	input.SendButton("LEFT")
 	return nil
 }
 
 func (tv *TV) KeyRight() error {
-	if tv.input == nil {
-		var err error
-		tv.input, err = tv.createInput()
-		if err != nil {
-			return err
-		}
+	input, err := tv.createInput()
+	if err != nil {
+		return err
 	}
-	tv.input.SendButton("RIGHT")
+	defer input.Close()
+
+	input.SendButton("RIGHT")
 	return nil
 }
 
@@ -320,25 +316,21 @@ func (tv *TV) KeyOk() (Message, error) {
 }
 
 func (tv *TV) KeyBack() error {
-	if tv.input == nil {
-		var err error
-		tv.input, err = tv.createInput()
-		if err != nil {
-			return err
-		}
+	input, err := tv.createInput()
+	if err != nil {
+		return err
 	}
-	tv.input.SendButton("BACK")
+	defer input.Close()
+
+	input.SendButton("BACK")
 	return nil
 }
 
 func (tv *TV) KeyHome() error {
-	if tv.input == nil {
-		var err error
-		tv.input, err = tv.createInput()
-		if err != nil {
-			return err
-		}
+	input, err := tv.createInput()
+	if err != nil {
+		return err
 	}
-	tv.input.SendButton("HOME")
+	input.SendButton("HOME")
 	return nil
 }
