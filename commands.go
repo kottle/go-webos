@@ -219,6 +219,12 @@ func (tv *TV) LaunchApp(app string) error {
 	return err
 }
 
+// LaunchApp launches an app with content id.
+func (tv *TV) LaunchAppWithContentId(app string, contentid string) error {
+	_, err := tv.Command(SystemLauncherLaunchCommand, Payload{"id": app, "contentId": contentid})
+	return err
+}
+
 // OpenApp switches to a previously launched/backgrounded app.
 func (tv *TV) OpenApp(app string) error {
 	_, err := tv.Command(SystemLauncherOpenCommand, Payload{"id": app})

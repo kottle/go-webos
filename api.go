@@ -27,11 +27,12 @@ const (
 // Message represents the JSON message format used in request and responses to
 // and from the TV.
 type Message struct {
-	Type    MessageType `json:"type,omitempty"`
-	ID      string      `json:"id,omitempty"`
-	URI     Command     `json:"uri,omitempty"`
-	Payload Payload     `json:"payload,omitempty"`
-	Error   string      `json:"error,omitempty"`
+	Type     MessageType `json:"type,omitempty"`
+	ID       string      `json:"id,omitempty"`
+	URI      Command     `json:"uri,omitempty"`
+	Payload  Payload     `json:"payload,omitempty"`
+	EntityID string      `json:"entity_id,omitempty"`
+	Error    string      `json:"error,omitempty"`
 }
 
 // Validate validates the Message.
